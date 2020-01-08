@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="${vendorname}_${modulename}_${entityname}" comment="${Entityname} Table">
+        <column xsi:type="int" name="entity_id" identity="true" padding="10" unsigned="true" nullable="false" comment="${Entityname} ID"/>
+        <column xsi:type="varchar" name="identifier" nullable="false" length="100" comment="${Entityname} Identifier"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id"/>
+        </constraint>
+        
+        <index referenceId="INDEX_${VENDORNAME}_${MODULENAME}_${ENTITYNAME}_IDENTIFIER" indexType="fulltext">
+            <column name="identifier"/>
+        </index>
+
+    </table>
+</schema>
